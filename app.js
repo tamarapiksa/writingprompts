@@ -26,29 +26,29 @@ writingApp.config(function($routeProvider){
 
 });
 
-writingApp.service('keywordService', function(){
+writingApp.service('tagService', function(){
 
-    this.keyword = '';
+    this.tag = '';
 });
 
 
 
 
-writingApp.controller('homeController', ['$scope', 'keywordService', function($scope, keywordService){
+writingApp.controller('homeController', ['$scope', 'tagService', function($scope, tagService){
 
-  $scope.keyword = keywordService.keyword;
+  $scope.tag = tagService.tag;
 
-  $scope.$watch('keyword', function(){
-    keywordService.keyword = $scope.keyword;
+  $scope.$watch('tag', function(){
+    keywordService.tag = $scope.tag;
 
   });
 
 }]);
 
 
-writingApp.controller('twitterController', ['$scope', '$resource', 'keywordService', function($scope, $resource, keywordService){
+writingApp.controller('twitterController', ['$scope', '$resource', 'tagService', function($scope, $resource, tagService){
 
-  $scope.keyword = keywordService.keyword;
+  $scope.tag = tagService.tag;
 
   $scope.tumblrAPI =
   $resource("https://api.tumblr.com/v2/blog/pitchersandpoets.tumblr.com/posts/photo?tag=new+york+yankees", {
