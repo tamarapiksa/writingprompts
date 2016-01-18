@@ -7,35 +7,50 @@ writingApp.config(function($routeProvider){
   $routeProvider
 
   .when('/',{
-    templateURL: 'pages/home.html',
+    templateUrl: '/pages/home.html',
     controller: 'homeController'
 
   })
 
   .when('/twitterprompt',{
-    templateURL: '/pages/twitterprompt.html',
+    templateUrl: '/pages/twitterprompt.html',
     controller: 'twitterController'
 
   })
 
   .when('/tumblrprompt', {
-    tempplateURL: '/pages/tumblrprompt.html',
+    tempplateUrl: '/pages/tumblrprompt.html',
     controller: 'tumblrController'
   })
 
 
 });
 
+writingApp.service('keywordService', function(){
 
-writingApp.controller('homeController', ['$scope', function($scope){
+    this.keyword = '';
+});
+
+
+writingApp.controller('homeController', ['$scope', 'keywordService', function($scope, keywordService){
+
+  $scope.keyword = keywordService.keyword;
+
+  $scope.$watch('keyword', function(){
+    keywordService.keyword = $scope.keyword;
+
+  });
 
 }]);
 
-writingApp.controller('twitterController', ['$scope', function($scope){
+writingApp.controller('twitterController', ['$scope', 'keywordService', function($scope, keywordService){
+
+  $scope.keyword = keywordService.keyword; 
 
 }]);
 
 writingApp.controller('tumblrController', ['$scope', function($scope){
 
 }]);
+
 
