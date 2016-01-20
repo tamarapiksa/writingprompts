@@ -39,7 +39,7 @@ writingApp.controller('homeController', ['$scope', 'tagService', function($scope
   $scope.tag = tagService.tag;
 
   $scope.$watch('tag', function(){
-    keywordService.tag = $scope.tag;
+    tagService.tag = $scope.tag;
 
   });
 
@@ -50,11 +50,12 @@ writingApp.controller('twitterController', ['$scope', '$resource', 'tagService',
 
   $scope.tag = tagService.tag;
 
-  $scope.tumblrAPI =
-  $resource("https://api.tumblr.com/v2/blog/pitchersandpoets.tumblr.com/posts/photo?tag=new+york+yankees", {
-  callback: "JSON_CALLBACK"}, { get: { method: "JSONP" }});
+  $scope.tumblrAPI = 
+  $resource("http://api.tumblr.com/v2/tagged?&api_key=", {
+    callback: "JSON_CALLBACK"}, { get: {method: "JSONP"}});
 
-  $scope.tumblrResult = $scope.tumblrAPI.get({ q: $scope.photo, cnt: 1});
+  $scope.tumblrResult = $scope.tumblrAPI.get({ tag: $scope.tag, limit: 1});
+  
 
   console.log($scope.tumblrResult);
 
