@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-us" ng-app="writingApp">
+  <head>
+    <title>Writing Prompts</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+    <link rel="stylesheet" type="text/css" href="stylesheets/animate.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+     <script src="https://code.angularjs.org/1.4.8/angular-messages.min.js"></script>
+     <script src="https://code.angularjs.org/1.4.8/angular-resource.js"></script>
+     <script src="https://code.angularjs.org/1.4.8/angular-route.min.js"></script>
+    <script src="javascripts/writingApp.js"></script>
+    <script src="javascripts/routes.js"></script>
+    <script src="javascripts/services.js"></script>
+    <script src="javascripts/controllers.js"></script>
+    <script src="directives/type.js"></script>
+  </head>
+  <body>
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <div id="sidebar-wrapper">
+            <ul class="sidebar-nav">
+                <li class="sidebar-brand">
+                    <a href="/#/">
+                        prompt'd
+                    </a>
+
+                 <li>
+                    <a href="/#/" ng-show="authenticated" ng-click="signout()">Logout</a>
+                 </li>
+                 
+                 <li>
+                    <a href="/#/posts" ng-show="authenticated">Signed in as <b>{{current_user}}</b></a>
+                 </li>
+                
+                </li>
+                
+                <li>
+                    <a href="#">Dashboard</a>
+                </li>
+                <li>
+                    <a href="#">Shortcuts</a>
+                </li>
+                <li>
+                    <a href="#">Overview</a>
+                </li>
+                <li>
+                    <a href="#">Events</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </div>
+        <!-- /#sidebar-wrapper -->
+
+        <!-- Page Content -->
+        <div id="page-content-wrapper">
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <a href="#menu-toggle" id="menu-toggle"><i class="fa fa-bars animated fadeIn"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- /#page-content-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+
+  
+
+    <!-- Menu Toggle Script -->
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#wrapper").toggleClass("toggled");
+    });
+    </script>
+    <div class="container">
+      <div ng-view>
+      </div>  
+    </div>
+  </body>
+<html>
