@@ -90,7 +90,7 @@ writingApp.controller('twitterController', ['$scope', '$resource', 'tagService',
   $scope.tag = tagService.tag;
 
   $scope.tumblrAPI = 
-  $resource("http://api.tumblr.com/v2/tagged?&api_key=eSpPMTu19KwTIx3w0zEaLrxVodY2Q607HrT1HHXxTGcPGx3tgw", {
+  $resource("http://api.tumblr.com/v2/tagged?&api_key=XXXXXXXX", {
     callback: "JSON_CALLBACK"}, { get: {method: "JSONP"}});
 
   $scope.tumblrResult = $scope.tumblrAPI.get({ tag: $scope.tag, limit: 1});

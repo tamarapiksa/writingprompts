@@ -18,4 +18,3 @@ var Schema = mongoose.Schema;
 
  mongoose.model('Post', postSchema);
  mongoose.model('User', userSchema);
-
