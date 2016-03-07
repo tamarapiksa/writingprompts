@@ -13,7 +13,7 @@ var index = require('./routes/index');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
 var mongoose = require('mongoose');                         //add for Mongo support
-mongoose.connect('mongodb://localhost/test-chirp');              //connect to Mongo
+mongoose.connect('mongodb://localhost/writingprompt');              //connect to Mongo
 var app = express();
 
 // view engine setup
@@ -25,14 +25,14 @@ app.set('view engine', 'ejs');
 app.use(logger('dev'));
 app.use(session({
   secret: 'keyboard cat',
-  name: 'keyboard',
+  rolling: true,
   resave: true,
   saveUninitialized: true
 }));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.cookieParser());
-app.use(express.session({secret: '1234567890QWERTY'}));
+app.use(cookieParser());
+app.use(session({secret: '1234567890QWERTY'}));
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(passport.initialize());
 app.use(passport.session());

@@ -2,13 +2,13 @@ var mongoose = require('mongoose')
 var Schema = mongoose.Schema;
 
 
- var postSchema = new mongoose.Schema({
-  created_by: {type: Schema.ObjectId, ref: 'User'},
+ var postSchema = new Schema({
+  created: {type: Schema.ObjectId, ref: 'User'},
   created_at: {type: Date, default: Date.now},
   text: String
  });
 
- var userSchema = new mongoose.Schema({
+ var userSchema = new Schema({
   username: String,
   password: String,
   created_at: {type:Date, default: Date.now}
