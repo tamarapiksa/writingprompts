@@ -11,9 +11,14 @@ writingApp.config(function($routeProvider){
 
   .when('/example1',{
     templateUrl: '/pages/example1.html',
-    controller: 'homeController'
+    controller: 'postController'
   })
 
+
+  .when('/example2',{
+    templateUrl: '/pages/example2.html',
+    controller: 'postController'
+  })
 
   .when('/twitterprompt',{
     templateUrl: '/pages/twitterprompt.html',
@@ -39,6 +44,16 @@ writingApp.config(function($routeProvider){
   .when('/signup', {
     templateUrl: '/pages/signup.html',
     controller: 'authController'
+  })
+
+  .when('/feed', {
+    templateUrl: '/pages/feed.html',
+    controller: 'postController'
+  })
+
+  .when('/about', {
+    templateUrl: '/pages/about.html',
+    controller: 'homeController'
   })
 
 

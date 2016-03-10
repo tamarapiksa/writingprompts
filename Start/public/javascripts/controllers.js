@@ -9,6 +9,8 @@ writingApp.factory('postService', function($resource){
 
 writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'quoteService', 'postService', '$rootScope', function($scope, $location, tagService, quoteService, postService, $rootScope){
 
+
+
   
   $scope.tag = tagService.tag;
 
@@ -40,13 +42,12 @@ writingApp.controller('authController', function($scope, $http, $rootScope, $loc
       if(data.state == 'success'){
         $rootScope.authenticated = true;
         $rootScope.current_user = data.user.username;
-        $location.path('/posts');
+        $location.path('/example2');
       }
       else{
         $scope.error_message = data.message;
       }
-    })
-    $scope.error_message = 'login request for' + ' ' + $scope.user.username;
+    });
   };
 
   $scope.register = function(){
@@ -54,13 +55,12 @@ writingApp.controller('authController', function($scope, $http, $rootScope, $loc
       if(data.state == 'success'){
         $rootScope.authenticated = true;
         $rootScope.current_user = data.user.username;
-        $location.path('/posts');
+        $location.path('/example2');
       }
       else{
         $scope.error_message = data.message;
       }
-    })
-    $scope.error_message = 'registration request for ' + ' ' + $scope.user.username;
+    });
   };
 });
 
@@ -68,17 +68,6 @@ writingApp.controller('authController', function($scope, $http, $rootScope, $loc
 
 
 
-writingApp.controller('postController', ['$scope', 'postService', '$rootScope', function($scope, postService, $rootScope){
-  $scope.posts = [];
-  $scope.newPost = {created_by:'', text:'', created_at:''};
-
-  $scope.post = function(){
-    $scope.newPost.created_at = Date.now();
-    $scope.posts.push($scope.newPost);
-    $scope.newPost = {created_by: '', text: '', created_at: ''};
-  };
-
-}]);
 
 
 
@@ -122,11 +111,25 @@ writingApp.controller('quoteController', ['$scope', '$resource', 'quoteService',
 
 
 
+writingApp.factory('postService', function($resource) {
+  return $resource('/api/posts/:id');
+});
+
+writingApp.controller('postController', function($scope, postService, $rootScope, $location) {
+
+  $scope.posts = postService.query(); //sends get request to post service and and returns cheeps = posts
+  $scope.newPost = {created_by : '', text : '', created_at: ''};
 
 
+  $scope.post = function () {
 
+    $scope.newPost.created_by = $rootScope.current_user;
+    $scope.newPost.created_at = Date.now();
+    //using post service (in a callback) to save new posts
+    postService.save($scope.newPost, function() {
+      $scope.posts = postService.query();
+      $scope.newPost = {created_by: '', text: '', created_at: ''};
+    });
+  }
 
-
-
-
-
+});

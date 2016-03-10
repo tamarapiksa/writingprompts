@@ -37,12 +37,14 @@
                  <li>
                     <a href="/#/" ng-show="authenticated" ng-click="signout()">Logout</a>
                  </li>
-                 
                  <li>
-                    <a href="/#/posts" ng-show="authenticated">Signed in as <b>{{current_user}}</b></a>
-                 </li>   
+                    <a href="/#/feed" ng-show="authenticated">All Posts</a>
+                </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="/#/example2" ng-show="authenticated">Prompts</a>
+                </li>
+                <li>
+                    <a href="/#/about">About</a>
                 </li>
             </ul>
         </div>

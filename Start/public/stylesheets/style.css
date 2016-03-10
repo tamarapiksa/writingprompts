@@ -52,8 +52,10 @@ h2.quote {
 }
 
 h4 {
-  font-size: 250%;
-  color: white;
+  font-size: 75px;
+  color: black;
+  margin-top: 70px;
+  margin-bottom: 50px;
 }
 
 #mainp {
@@ -136,7 +138,7 @@ textarea.form-control {
   width: 500px;
   height: 180px;
   margin-left: -148px;
-  margin-top: -50px;
+  margin-top: -15px;
   font-size: 25px;
   border: none;
   animation: fadein 10s;
@@ -434,6 +436,35 @@ no-repeat     center fixed;
  z-index: -1;
 }
 
+.background2 {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+background: url('/images/5.jpg')
+no-repeat     center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+ background-size: cover;
+ z-index: -1;
+
+
+}
+
+.background3 {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+background: url('/images/6.jpg')
+no-repeat     center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+ background-size: cover;
+ z-index: -1;
+
+
+}
+
+
 .clearfix {
   margin-top: 250px;
   margin-left: 80px;
@@ -450,4 +481,94 @@ no-repeat     center fixed;
  margin-top: 100px;
 }
 
+.fullcircle1 {
+ background-color: white;
+ opacity: 0.7;
+ height: 600px;
+ -moz-border-radius: 300px;
+ -webkit-border-radius: 300px;
+ width: 600px;
+ margin-left: 550px;
+ margin-top: 25px;
+}
 
+.fullcircle1 h2.quote {
+  color: #555;
+  margin-left: 30px;
+  margin-right: 100px;
+
+}
+
+.fullcircle1 textarea {
+  margin-top: 70px;
+  height: 140px;
+}
+
+
+.glyphicon {
+  font-size: 50px;
+  color: white;
+  margin-left: 1100px;
+}
+
+.row1 .glyphicon {
+  margin-top: 70px;
+}
+
+.fullcircle2 {
+ background-color: white;
+ opacity: 0.7;
+ height: 600px;
+ -moz-border-radius: 300px;
+ -webkit-border-radius: 300px;
+ width: 600px;
+ margin-left: 570px;
+ margin-top: 110px;
+}
+
+.fullcircle2 h2.quote {
+  margin-right: 100px;
+}
+
+.fullcircle2 textarea {
+  height: 130px;
+  margin-top: 75px;
+}
+
+.row2 .glyphicon {
+  margin-top: 10px;
+}
+
+.about {
+  margin-left: 100px;
+  overflow: hidden;
+  margin-top: 80px;
+}
+
+.about h1 {
+  width: 1000px;
+  margin-left: 10px;
+}
+.about p {
+  font-size: 30px;
+  margin-left: 65px;
+  margin-top: 30px;
+  width: 850px;
+}
+
+#post-stream {
+  width: 900px;
+  margin-left: 100px;
+}
+
+.background4 {
+  position: absolute;
+  top: 0; right: 0; bottom: 0; left: 0;
+background: url('/images/desk.jpg')
+no-repeat     center fixed; 
+-webkit-background-size: cover;
+-moz-background-size: cover;
+-o-background-size: cover;
+ background-size: cover;
+ z-index: -1;
+}
