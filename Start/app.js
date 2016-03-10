@@ -13,7 +13,7 @@ var index = require('./routes/index');
 var api = require('./routes/api');
 var authenticate = require('./routes/authenticate')(passport);
 var mongoose = require('mongoose');                         //add for Mongo support
-mongoose.connect('mongodb://localhost/writingprompt');              //connect to Mongo
+mongoose.connect(process.env.MONGOLAB_URI || 'mongodb://localhost/writingprompt');              //connect to Mongo
 var app = express();
 
 // view engine setup
