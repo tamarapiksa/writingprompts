@@ -29,7 +29,7 @@ writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'q
 }]);
 
 
-writingApp.controller('authController', function($scope, $http, $rootScope, $location){
+writingApp.controller('authController', function($scope, $http, $rootScope, $location, $cookies){
   $scope.user = {username:'', password:''};
   $scope.error_message = '';
 
@@ -39,8 +39,9 @@ writingApp.controller('authController', function($scope, $http, $rootScope, $loc
   $scope.login = function(){
     $http.post('/auth/login', $scope.user).success(function(data){
       if(data.state == 'success'){
+        $cookies.put('user', JSON.stringify(data.user))
         $rootScope.authenticated = true;
-        $rootScope.current_user = data.user.username;
+        $rootScope.current_user = data.user;
         $location.path('/example2');
       }
       else{
@@ -109,18 +110,23 @@ writingApp.controller('quoteController', ['$scope', '$resource', 'quoteService',
 }]);
 
 
+writingApp.factory('postService', function($resource){
+  return $resource('/api/posts/:id');
+});
 
+writingApp.controller('postController', function($scope, $rootScope, $location, postService, $http) {
 
-writingApp.controller('postController', function($scope, $rootScope, $location, $resource) {
-
-   $scope.posts = [];
-   $scope.newPost = {created_by:'', text:'', created_at:''};
- 
-   $scope.post = function(){
-     $scope.newPost.created_at = Date.now();
-     $scope.posts.push($scope.newPost);
-     $scope.newPost = {created_by: '', text: '', created_at: ''};
-   };
+   $scope.posts = postService.query();
+   $scope.newPost = {created_by: '', text: '', created_at: ''};
+  
+  $scope.post = function() {
+    $scope.newPost.created_by = $rootScope.current_user;
+    $scope.newPost.created_at = Date.now();
+    postService.save($scope.newPost, function(){
+      $scope.posts = postService.query();
+      $scope.newPost = {created_by: '', text: '', created_at: ''};
+    });
+  };
 
 
 
