@@ -1,13 +1,9 @@
 
 
 
-writingApp.factory('postService', function($resource){
-    return $resource('/api/posts/:id');
-  });
 
 
-
-writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'quoteService', 'postService', '$rootScope', function($scope, $location, tagService, quoteService, postService, $rootScope){
+writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'quoteService', '$rootScope', function($scope, $location, tagService, quoteService, $rootScope){
 
 
 
@@ -36,6 +32,9 @@ writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'q
 writingApp.controller('authController', function($scope, $http, $rootScope, $location){
   $scope.user = {username:'', password:''};
   $scope.error_message = '';
+
+ 
+
 
   $scope.login = function(){
     $http.post('/auth/login', $scope.user).success(function(data){
@@ -111,25 +110,18 @@ writingApp.controller('quoteController', ['$scope', '$resource', 'quoteService',
 
 
 
-writingApp.factory('postService', function($resource) {
-  return $resource('/api/posts/:id');
-});
 
-writingApp.controller('postController', function($scope, postService, $rootScope, $location) {
+writingApp.controller('postController', function($scope, $rootScope, $location, $resource) {
 
-  $scope.posts = postService.query(); //sends get request to post service and and returns cheeps = posts
-  $scope.newPost = {created_by : '', text : '', created_at: ''};
+   $scope.posts = [];
+   $scope.newPost = {created_by:'', text:'', created_at:''};
+ 
+   $scope.post = function(){
+     $scope.newPost.created_at = Date.now();
+     $scope.posts.push($scope.newPost);
+     $scope.newPost = {created_by: '', text: '', created_at: ''};
+   };
 
 
-  $scope.post = function () {
-
-    $scope.newPost.created_by = $rootScope.current_user;
-    $scope.newPost.created_at = Date.now();
-    //using post service (in a callback) to save new posts
-    postService.save($scope.newPost, function() {
-      $scope.posts = postService.query();
-      $scope.newPost = {created_by: '', text: '', created_at: ''};
-    });
-  }
 
 });
