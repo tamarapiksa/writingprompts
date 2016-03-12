@@ -1,5 +1,6 @@
 
 
+<<<<<<< HEAD
 var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource', 'ngCookies']).run(function($http, $rootScope, $location, $cookies){
   
   $rootScope.$on('$routeChangeStart', function(event, next, current){
@@ -15,6 +16,9 @@ var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource', 'ngCook
     }
   })
 
+=======
+var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope){
+>>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
   $rootScope.authenticated = false;
   $rootScope.current_user = '';
 
