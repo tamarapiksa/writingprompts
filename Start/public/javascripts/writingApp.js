@@ -1,6 +1,9 @@
 
 
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
 var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource', 'ngCookies']).run(function($http, $rootScope, $location, $cookies){
   
   $rootScope.$on('$routeChangeStart', function(event, next, current){
@@ -16,9 +19,12 @@ var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource', 'ngCook
     }
   })
 
+<<<<<<< HEAD
 =======
 var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope){
 >>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
+=======
+>>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
   $rootScope.authenticated = false;
   $rootScope.current_user = '';
 

@@ -142,10 +142,14 @@ textarea.form-control {
   font-size: 25px;
   border: none;
 <<<<<<< HEAD
+<<<<<<< HEAD
   animation: fadein 3s;
 =======
   animation: fadein 10s;
 >>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
+=======
+  animation: fadein 3s;
+>>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
 }
 
 
