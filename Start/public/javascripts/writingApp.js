@@ -14,9 +14,6 @@ var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource', 'ngCook
     }
   })
 
-
-var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource']).run(function($http, $rootScope){
-
   $rootScope.authenticated = false;
   $rootScope.current_user = '';
 
@@ -26,6 +23,5 @@ var writingApp = angular.module ('writingApp', ['ngRoute', 'ngResource']).run(fu
     $rootScope.current_user = '';
   };
 });
-
 
 
