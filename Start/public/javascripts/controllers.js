@@ -1,12 +1,10 @@
 
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 
 
 writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'quoteService', '$rootScope', function($scope, $location, tagService, quoteService, $rootScope){
-=======
 writingApp.factory('postService', function($resource){
     return $resource('/api/posts/:id');
   });
@@ -14,12 +12,10 @@ writingApp.factory('postService', function($resource){
 
 
 writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'quoteService', 'postService', '$rootScope', function($scope, $location, tagService, quoteService, postService, $rootScope){
->>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
-=======
+
 
 
 writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'quoteService', '$rootScope', function($scope, $location, tagService, quoteService, $rootScope){
->>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
 
 
 
@@ -45,8 +41,7 @@ writingApp.controller('homeController', ['$scope', '$location', 'tagService', 'q
 }]);
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 writingApp.controller('authController', function($scope, $http, $rootScope, $location, $cookies){
   $scope.user = {username:'', password:''};
   $scope.error_message = '';
@@ -60,11 +55,9 @@ writingApp.controller('authController', function($scope, $http, $rootScope, $loc
         $cookies.put('user', JSON.stringify(data.user))
         $rootScope.authenticated = true;
         $rootScope.current_user = data.user;
-=======
 writingApp.controller('authController', function($scope, $http, $rootScope, $location){
-=======
+
 writingApp.controller('authController', function($scope, $http, $rootScope, $location, $cookies){
->>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
   $scope.user = {username:'', password:''};
   $scope.error_message = '';
 
@@ -76,12 +69,10 @@ writingApp.controller('authController', function($scope, $http, $rootScope, $loc
       if(data.state == 'success'){
         $cookies.put('user', JSON.stringify(data.user))
         $rootScope.authenticated = true;
-<<<<<<< HEAD
         $rootScope.current_user = data.user.username;
->>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
-=======
+
         $rootScope.current_user = data.user;
->>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
+
         $location.path('/example2');
       }
       else{
@@ -149,9 +140,6 @@ writingApp.controller('quoteController', ['$scope', '$resource', 'quoteService',
 
 }]);
 
-
-<<<<<<< HEAD
-<<<<<<< HEAD
 writingApp.factory('postService', function($resource){
   return $resource('/api/posts/:id');
 });
@@ -171,12 +159,10 @@ writingApp.controller('postController', function($scope, $rootScope, $location, 
   };
 
 
-=======
 
 writingApp.factory('postService', function($resource) {
-=======
+
 writingApp.factory('postService', function($resource){
->>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
   return $resource('/api/posts/:id');
 });
 
@@ -192,13 +178,10 @@ writingApp.controller('postController', function($scope, $rootScope, $location, 
       $scope.posts = postService.query();
       $scope.newPost = {created_by: '', text: '', created_at: ''};
     });
-<<<<<<< HEAD
   }
->>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
-=======
+
   };
 
 
->>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
 
 });

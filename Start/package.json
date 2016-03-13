@@ -1,11 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 
-=======
->>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
-=======
-
->>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
 {
   "name": "Start",
   "version": "0.0.0",
@@ -13,7 +6,7 @@
   "scripts": {
     "start": "node ./bin/www",
   "engines": {
-    "node": "0.12.4"
+    "node": "^0.0.0"
   }
   },
   "dependencies": {
@@ -33,17 +26,9 @@
     "mongodb": "^2.1.7",
     "mongoose": "^4.4.6",
     "morgan": "^1.7.0",
-    "node.js": "^0.12.4",
+    "node.js": "^0.0.0",
     "passport": "^0.2.2",
     "passport-local": "^1.0.0",
     "serve-favicon": "^2.3.0"
   }
-<<<<<<< HEAD
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 0f65837ebbc6832827e95d035f520c0969690d65
-=======
-}
->>>>>>> 2aa2e6383c252c9feee8f79d4c9d188d829976b8
