@@ -7,7 +7,7 @@ body {
 
 
 .container {
-  margin-left: 183px;
+  margin-left: 173px;
 }
 
 .well {
@@ -556,12 +556,17 @@ no-repeat     center fixed;
 .about h1 {
   width: 1000px;
   margin-left: 10px;
+  margin-top: -30px;
 }
 .about p {
   font-size: 30px;
-  margin-left: 65px;
-  margin-top: 30px;
+  margin-left: 45px;
+  margin-top: 10px;
   width: 850px;
+}
+
+.about h2 {
+  margin-top: 20;
 }
 
 #post-stream {
